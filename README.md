@@ -14,3 +14,6 @@ Then, generate the necessary files:
 ```bash
 flutter pub run build_runner build --delete-conflicting-outputs
 ```
+
+Demo:
+![Demo](https://github.com/urielexis64/riverpod_example/blob/main/demo.gif)
