@@ -49,6 +49,8 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                 child: const Text('Login'),
               ),
               const SizedBox(height: 20),
+
+              // Componente reactivo
               Consumer(
                 builder: (context, ref, child) {
                   final user = ref.watch(loginProvider);
