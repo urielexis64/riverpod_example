@@ -1,20 +1,18 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:riverpod_examplee/app/features/login/domain/model/user.dart';
-import 'package:riverpod_examplee/app/features/login/infra/impl/login_impl.dart';
 import 'package:riverpod_examplee/app/features/login/infra/service/login_service.dart';
+
+import 'login_providers.dart';
 
 part 'login_provider.g.dart';
 
-final loginProviderAux = Provider<LoginService>((ref) {
-  return LoginService(loginRepositoryGateway: LoginImpl.instance);
-});
-
 @riverpod
 class Login extends _$Login {
-  final _service = ref.watch(loginProviderAux);
+  late final LoginService _service;
 
   @override
   FutureOr<User?> build() async {
+    _service = ref.read(loginServiceProvider);
     // Here we can load the user from storage or any other source.
     // As example, we start with no user.
     return null;

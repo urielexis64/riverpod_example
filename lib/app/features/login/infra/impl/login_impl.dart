@@ -1,5 +1,5 @@
-import 'package:riverpod_examplee/app/features/login/domain/repo/login_repo_gateway.dart';
 import 'package:riverpod_examplee/app/features/login/domain/model/user.dart';
+import 'package:riverpod_examplee/app/features/login/domain/repo/login_repo_gateway.dart';
 
 class LoginImpl implements LoginRepositoryGateway {
   LoginImpl._();
@@ -8,7 +8,14 @@ class LoginImpl implements LoginRepositoryGateway {
 
   @override
   Future<User?> login(String email, String password) async {
-    // TODO: implement login
-    throw UnimplementedError();
+    // Simulate a network call
+    await Future.delayed(const Duration(seconds: 1));
+
+    // Check credentials
+    if (email == 'test@test.com' && password == 'password') {
+      return User(id: '1', email: email);
+    }
+
+    return null;
   }
 }
