@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_examplee/app/features/login/presentation/widgets/login_form.dart';
 
-import '../providers/login_providers.dart';
+import '../providers/providers.dart';
 
 /// UI for the login screen, using Riverpod for state management.
 class LoginPage extends StatelessWidget {

@@ -4,3 +4,10 @@ import 'package:riverpod_examplee/app/features/login/domain/model/user.dart';
 abstract class LoginRepositoryGateway {
   Future<User?> login(String email, String password);
 }
+
+
+/**
+ * repo rename to gateway
+ * pages to root folder
+ * providers subfix for providers exports 
+ */

@@ -13,6 +13,7 @@ class ApiService {
 
   /// Performs a GET request.
   Future<Response> get(String path, {Map<String, dynamic>? query}) {
+    //log
     return _dio.get(path, queryParameters: query);
   }
 
