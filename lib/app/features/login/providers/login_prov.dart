@@ -3,22 +3,22 @@ import 'package:riverpod_examplee/app/features/login/domain/model/user.dart';
 import 'package:riverpod_examplee/app/features/login/infra/service/login_service.dart';
 import 'package:riverpod_examplee/app/features/login/providers/login_service_prov.dart';
 
-part 'login_provider.g.dart';
+part 'login_prov.g.dart';
 
 // Only expose the provider instead of the class.
 // This way, we can control access to the provider and give it a name
 // that makes sense to the rest of the app.
-final loginProvider = _loginProviderProvider;
+final loginProvider = _loginProvProvider;
 
 // This class can be named "Login" or anything else, what is important is
 // that it must be private.
 @riverpod
-class _LoginProvider extends _$LoginProvider {
+class _LoginProv extends _$LoginProv {
   late final LoginService _service;
 
   @override
   FutureOr<User?> build() async {
-    _service = ref.read(loginServiceProvProvider);
+    _service = ref.read(loginServiceProvider);
     // Here we can load the user from storage or any other source.
     // As example, we start with no user.
     return null;

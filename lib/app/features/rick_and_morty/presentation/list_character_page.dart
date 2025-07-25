@@ -33,13 +33,13 @@ class _CharacterListPageState extends ConsumerState<ListCharacterPage> {
   void _onScroll() {
     if (_scrollController.position.pixels >=
         _scrollController.position.maxScrollExtent - 200) {
-      ref.read(characterServiceProvProvider.notifier).fetchNextPage();
+      ref.read(characterServiceProvider.notifier).fetchNextPage();
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final state = ref.watch(characterServiceProvProvider);
+    final state = ref.watch(characterServiceProvider);
 
     // Calculate the total number of children, including a loader if more data is available.
     final childCount = state.characters.length + (state.hasMore ? 1 : 0);

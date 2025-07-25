@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_examplee/app/features/login/providers/login_provider.dart';
+import 'package:riverpod_examplee/app/features/login/providers/login_prov.dart';
 
 /// A form for user login.
 class LoginForm extends ConsumerStatefulWidget {

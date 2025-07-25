@@ -8,9 +8,14 @@ import '../domain/models/character_list_state.dart';
 
 part 'character_service_prov.g.dart';
 
+// Only expose the provider instead of the class.
+// This way, we can control access to the provider and give it a name
+// that makes sense to the rest of the app.
+final characterServiceProvider = _characterServiceProvProvider;
+
 /// State class to hold character list data and status.
 @riverpod
-class CharacterServiceProv extends _$CharacterServiceProv {
+class _CharacterServiceProv extends _$CharacterServiceProv {
   late final CharacterGateway _repository;
   int _currentPage = 1;
 

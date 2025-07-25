@@ -5,6 +5,11 @@ import 'package:riverpod_examplee/app/features/login/infra/service/login_service
 
 part 'login_service_prov.g.dart';
 
+// Only expose the provider instead of the class.
+// This way, we can control access to the provider and give it a name
+// that makes sense to the rest of the app.
+final loginServiceProvider = _loginServiceProvProvider;
+
 /// Provides a singleton instance of LoginService using LoginImpl as its gateway.
 @riverpod
-LoginService loginServiceProv(Ref _) => LoginService(LoginImpl.instance);
+LoginService _loginServiceProv(Ref _) => LoginService(LoginImpl.instance);

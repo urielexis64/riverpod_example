@@ -1,7 +1,7 @@
 import 'package:riverpod_examplee/app/features/login/domain/model/user.dart';
-import 'package:riverpod_examplee/app/features/login/domain/repo/login_repo_gateway.dart';
+import 'package:riverpod_examplee/app/features/login/domain/gateway/login_repo_gateway.dart';
 
-class LoginImpl implements LoginRepositoryGateway {
+class LoginImpl implements LoginGateway {
   LoginImpl._();
 
   static final LoginImpl instance = LoginImpl._();
