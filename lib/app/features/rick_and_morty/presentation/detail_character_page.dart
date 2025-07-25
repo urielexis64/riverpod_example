@@ -1,14 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:riverpod_examplee/app/features/rick_and_morty/domain/models/character.dart';
-import 'package:riverpod_examplee/app/features/rick_and_morty/presentation/detail/widgets/detail_app_bar.dart';
-import 'package:riverpod_examplee/app/features/rick_and_morty/presentation/detail/widgets/info_row.dart';
-import 'package:riverpod_examplee/app/features/rick_and_morty/presentation/detail/widgets/status_chip.dart';
+import 'package:riverpod_examplee/app/features/rick_and_morty/presentation/widgets/detail_app_bar.dart';
+import 'package:riverpod_examplee/app/features/rick_and_morty/presentation/widgets/detail_info_row.dart';
+import 'package:riverpod_examplee/app/features/rick_and_morty/presentation/widgets/detail_status_chip.dart';
 import 'package:riverpod_examplee/app/shared/widgets/circular_image.dart';
 
 /// A page that displays detailed information about a character.
-class CharacterDetailPage extends StatelessWidget {
-  const CharacterDetailPage({super.key, required this.character});
+class DetailCharacterPage extends StatelessWidget {
+  const DetailCharacterPage({super.key, required this.character});
 
   final Character character;
 
@@ -60,11 +60,11 @@ class CharacterDetailPage extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: 12),
-                  StatusChip(status: character.status),
+                  DetailStatusChip(status: character.status),
                   const SizedBox(height: 24),
-                  InfoRow(label: 'Species', value: character.species),
+                  DetailInfoRow(label: 'Species', value: character.species),
                   const Divider(color: Colors.white24),
-                  InfoRow(label: 'Gender', value: character.gender),
+                  DetailInfoRow(label: 'Gender', value: character.gender),
                   const Divider(color: Colors.white24),
                 ],
               ),

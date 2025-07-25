@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 /// A widget that displays a row of information with a label and value.
-class InfoRow extends StatelessWidget {
-  const InfoRow({super.key, required this.label, required this.value});
+class DetailInfoRow extends StatelessWidget {
+  const DetailInfoRow({super.key, required this.label, required this.value});
 
   final String label;
   final String value;

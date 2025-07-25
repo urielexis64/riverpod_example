@@ -1,23 +1,23 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:riverpod_examplee/app/features/rick_and_morty/domain/repo/character_gateway.dart';
+import 'package:riverpod_examplee/app/core/api/providers/rick_and_morty_api_provider.dart';
+import 'package:riverpod_examplee/app/features/rick_and_morty/domain/gateway/character_gateway.dart';
 import 'package:riverpod_examplee/app/features/rick_and_morty/infrastructure/impl/character_impl.dart';
-import 'package:riverpod_examplee/app/features/rick_and_morty/providers/rick_and_morty_api_service_provider.dart';
 
 import '../domain/enums/character_list_status.dart';
 import '../domain/models/character_list_state.dart';
 
-part 'character_service_provider.g.dart';
+part 'character_service_prov.g.dart';
 
 /// State class to hold character list data and status.
 @riverpod
-class CharacterService extends _$CharacterService {
+class CharacterServiceProv extends _$CharacterServiceProv {
   late final CharacterGateway _repository;
   int _currentPage = 1;
 
   @override
   CharacterListState build() {
-    final api = ref.read(rickAndMortyApiServiceProvider);
-    _repository = CharacterGatewayImpl(apiService: api);
+    final api = ref.read(rickAndMortyApiProvider);
+    _repository = CharacterGatewayImpl(api: api);
     Future.microtask(() => fetchFirstPage());
     return const CharacterListState();
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_examplee/app/features/login/presentation/login_page.dart';
-import 'package:riverpod_examplee/app/features/rick_and_morty/presentation/list/character_list_page.dart';
+import 'package:riverpod_examplee/app/features/rick_and_morty/presentation/list_character_page.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -41,7 +41,7 @@ class _ChoiceFeature extends StatelessWidget {
                   () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => const CharacterListPage(),
+                      builder: (_) => const ListCharacterPage(),
                     ),
                   ),
               child: Text('Rick & Morty'),

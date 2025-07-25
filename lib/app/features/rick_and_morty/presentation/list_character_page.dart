@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_examplee/app/features/rick_and_morty/presentation/list/widgets/character_list_tile.dart';
-import 'package:riverpod_examplee/app/features/rick_and_morty/providers/character_service_provider.dart';
+import 'package:riverpod_examplee/app/features/rick_and_morty/presentation/widgets/list_character_tile.dart';
+import 'package:riverpod_examplee/app/features/rick_and_morty/providers/character_service_prov.dart';
 import 'package:riverpod_examplee/app/shared/widgets/app_error.dart';
 import 'package:riverpod_examplee/app/shared/widgets/app_loader.dart';
 
-import '../../domain/enums/character_list_status.dart';
+import '../domain/enums/character_list_status.dart';
 
 /// Page displaying a list of Rick & Morty characters.
-class CharacterListPage extends ConsumerStatefulWidget {
-  const CharacterListPage({super.key});
+class ListCharacterPage extends ConsumerStatefulWidget {
+  const ListCharacterPage({super.key});
 
   @override
-  ConsumerState<CharacterListPage> createState() => _CharacterListPageState();
+  ConsumerState<ListCharacterPage> createState() => _CharacterListPageState();
 }
 
-class _CharacterListPageState extends ConsumerState<CharacterListPage> {
+class _CharacterListPageState extends ConsumerState<ListCharacterPage> {
   final _scrollController = ScrollController();
 
   @override
@@ -33,13 +33,13 @@ class _CharacterListPageState extends ConsumerState<CharacterListPage> {
   void _onScroll() {
     if (_scrollController.position.pixels >=
         _scrollController.position.maxScrollExtent - 200) {
-      ref.read(characterServiceProvider.notifier).fetchNextPage();
+      ref.read(characterServiceProvProvider.notifier).fetchNextPage();
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final state = ref.watch(characterServiceProvider);
+    final state = ref.watch(characterServiceProvProvider);
 
     // Calculate the total number of children, including a loader if more data is available.
     final childCount = state.characters.length + (state.hasMore ? 1 : 0);
@@ -59,7 +59,7 @@ class _CharacterListPageState extends ConsumerState<CharacterListPage> {
               ) {
                 if (index < state.characters.length) {
                   final character = state.characters[index];
-                  return CharacterListTile(character: character);
+                  return ListCharacterTile(character: character);
                 }
 
                 return AppLoader();

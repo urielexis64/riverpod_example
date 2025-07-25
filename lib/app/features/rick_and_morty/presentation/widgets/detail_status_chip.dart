@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_examplee/app/features/rick_and_morty/presentation/detail/utils/detail_utils.dart';
+import 'package:riverpod_examplee/app/features/rick_and_morty/presentation/utils/detail_utils.dart';
 
 /// A widget that displays a status chip for a character.
-class StatusChip extends StatelessWidget {
-  const StatusChip({super.key, required this.status});
+class DetailStatusChip extends StatelessWidget {
+  const DetailStatusChip({super.key, required this.status});
 
   final String status;
 

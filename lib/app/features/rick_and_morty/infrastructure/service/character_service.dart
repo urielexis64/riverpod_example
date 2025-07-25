@@ -1,7 +1,7 @@
+import 'package:riverpod_examplee/app/features/rick_and_morty/domain/gateway/character_gateway.dart';
 import 'package:riverpod_examplee/app/features/rick_and_morty/domain/models/character.dart';
-import 'package:riverpod_examplee/app/features/rick_and_morty/domain/repo/character_gateway.dart';
 
-/// Contains business logic for login, using [LoginRepository].
+/// Service class for Rick and Morty characters.
 class CharacterService {
   CharacterService(this._characterGateway);
 

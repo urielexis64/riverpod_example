@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod_examplee/app/features/rick_and_morty/domain/models/character.dart';
-import 'package:riverpod_examplee/app/features/rick_and_morty/presentation/detail/character_detail_page.dart';
+import 'package:riverpod_examplee/app/features/rick_and_morty/presentation/detail_character_page.dart';
 import 'package:riverpod_examplee/app/shared/widgets/circular_image.dart';
 
 /// A widget that displays a character in a list tile format.
-class CharacterListTile extends StatelessWidget {
-  const CharacterListTile({super.key, required this.character});
+class ListCharacterTile extends StatelessWidget {
+  const ListCharacterTile({super.key, required this.character});
 
   final Character character;
 
@@ -29,7 +29,7 @@ class CharacterListTile extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (_) => CharacterDetailPage(character: character),
+        builder: (_) => DetailCharacterPage(character: character),
       ),
     );
   }

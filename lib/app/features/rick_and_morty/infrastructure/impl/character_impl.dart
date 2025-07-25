@@ -1,17 +1,16 @@
-import 'package:riverpod_examplee/app/core/api/api_service.dart';
-import 'package:riverpod_examplee/app/features/rick_and_morty/constants/rick_morty_endpoints.dart';
+import 'package:riverpod_examplee/app/core/api/rick_and_morty_api.dart';
+import 'package:riverpod_examplee/app/features/rick_and_morty/domain/gateway/character_gateway.dart';
 import 'package:riverpod_examplee/app/features/rick_and_morty/domain/models/character.dart';
-import 'package:riverpod_examplee/app/features/rick_and_morty/domain/repo/character_gateway.dart';
 
 /// Implementation of [CharacterGateway] using [ApiService].
 class CharacterGatewayImpl implements CharacterGateway {
-  final ApiService apiService;
+  final RickAndMortyApi api;
 
-  CharacterGatewayImpl({required this.apiService});
+  CharacterGatewayImpl({required this.api});
 
   @override
   Future<List<Character>> fetchCharacters({int page = 1}) async {
-    final response = await apiService.get(
+    final response = await api.get(
       RickMortyEndpoints.character,
       query: {'page': page},
     );
